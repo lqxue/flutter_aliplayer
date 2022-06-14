@@ -16,6 +16,16 @@ class HttpConstant {
   static const String GET_VIDEO_LIST = 'player/getVideoList';
   static const String GET_RANDOM_USER = 'user/randomUser';
   static const String GET_RECOMMEND_VIDEO_LIST = 'vod/getRecommendVideoList';
+
+  //乐唰正式环境
+  static const String DETOK_ONLINE_HTTP_HOST = 'https://api.leshuapro.com/';
+  static const String DETOK_TEST_HTTP_HOST = 'http://newsapp-test.leshuapro.com/';
+  static const String queryEsShortVideoList = 'api/shortVideo/queryEsShortVideoList';
+}
+
+class HttpParams{
+  static const String PAGE_NO = "pageNo";
+  static const String PAGE_SIZE = "pageSize";
 }
 
 class GlobalSettings {

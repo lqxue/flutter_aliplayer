@@ -127,17 +127,11 @@ class _VideoGridPageState extends State<VideoGridPage>
   }
 
   _loadData() async {
-    NetWorkUtils.instance.getHttp(HttpConstant.GET_RANDOM_USER,
+    NetWorkUtils.instance.postHttp(HttpConstant.queryEsShortVideoList,
+        params: {HttpParams.PAGE_NO: _page, HttpParams.PAGE_SIZE: 10},
         successCallback: (data) {
-      String token = data['token'];
-      NetWorkUtils.instance.getHttp(HttpConstant.GET_RECOMMEND_VIDEO_LIST,
-          params: {'token': token, "pageIndex": _page, "pageSize": 10},
-          successCallback: (data) {
-        print('data=$data');
-        _loadDataFinish(data);
-      }, errorCallback: (error) {
-        print("error");
-      });
+      print('data=$data');
+      _loadDataFinish(data);
     }, errorCallback: (error) {
       print("error");
     });

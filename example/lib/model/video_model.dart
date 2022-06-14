@@ -5,10 +5,10 @@ class VideoListModel {
   VideoListModel({this.total, this.videoList});
 
   VideoListModel.fromJson(Map<String, dynamic> json) {
-    total = json['total'];
-    if (json['videoList'] != null) {
+    total = json["shortVideoPageInfo"]["total"];
+    if (json["shortVideoPageInfo"]['list'] != null) {
       videoList = new List<VideoModel>();
-      json['videoList'].forEach((v) {
+      json["shortVideoPageInfo"]['list'].forEach((v) {
         videoList.add(new VideoModel.fromJson(v));
       });
     }
@@ -64,22 +64,22 @@ class VideoModel {
 
   VideoModel.fromJson(Map<String, dynamic> json) {
     videoId = json['videoId'];
-    uuid = json['uuid'];
+    // uuid = json['uuid'];
     title = json['title'];
-    tags = json['tags'];
-    status = json['status'];
+    // tags = json['tags'];
+    status = json['status'].toString();
     size = json['size'];
     duration = json['duration'];
     description = json['description'];
-    createTime = json['createTime'];
-    modifyTime = json['modifyTime'];
-    modificationTime = json['modificationTime'];
-    creationTime = json['creationTime'];
-    coverUrl = json['coverUrl'];
-    cateId = json['cateId'];
-    cateName = json['cateName'];
-    storageLocation = json['storageLocation'];
-    fileUrl = json['fileUrl'];
+    createTime = json['addTime'];
+    modifyTime = json['editTime'];
+    // modificationTime = json['modificationTime'];
+    // creationTime = json['creationTime'];
+    coverUrl = json['img'];
+    // cateId = json['cateId'];
+    // cateName = json['cateName'];
+    // storageLocation = json['storageLocation'];
+    fileUrl = json['playUrl'];
   }
 
   Map<String, dynamic> toJson() {
